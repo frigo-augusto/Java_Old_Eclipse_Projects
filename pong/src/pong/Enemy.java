@@ -20,7 +20,7 @@ public class Enemy {
 
 	public void tick()
 	{
-	    this.y += (Game.ball.y - this.y - 6.0D) * 0.07D;
+	    this.y += (Game.ball.y - this.y - 6.0D) * 0.3D;
 		
 		Rectangle rect1 = new Rectangle((int)x, (int)y, width, height);
 		

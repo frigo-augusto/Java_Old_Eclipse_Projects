@@ -8,7 +8,7 @@ import java.awt.Rectangle;
 
 public class Ball {
 	public double x,y;
-	public static int pontoInimigo, pontoJogador;
+	public static int pointEnemy, pointPlayer;
 	public double dx, dy;
 	public double speed = 10;
 	
@@ -29,7 +29,7 @@ public class Ball {
 
 	public void tick()
 	{
-		if(y + (dy * speed) + width >= Game.WIDTH)
+		if(y + (dy * speed) + height >= Game.HEIGHT * Game.SCALE) // <<<<
 		{
 			dy*= -1;
 		}
@@ -40,12 +40,13 @@ public class Ball {
 		
 		if (x >= Game.WIDTH * Game.SCALE)
 		{
+			pointPlayer += 50;
 			new Game();
 			return;
 		}
 		else if (x <= 0)
 		{
-			pontoInimigo = pontoInimigo + 50;
+			pointEnemy += 50;
 			new Game();
 			return;
 		}
@@ -70,8 +71,8 @@ public class Ball {
 	
 	public void render(Graphics g)
 	{
-		String pontoJogador1 = String.valueOf(pontoJogador);
-		String pontoInimigo1 = String.valueOf(pontoInimigo);
+		String pontoJogador1 = String.valueOf(pointPlayer);
+		String pontoInimigo1 = String.valueOf(pointEnemy);
 		g.setColor(Color.WHITE);
 		g.fillRect((int)x, (int)y, width, height);
 		g.setFont(new Font("Comic Sans", Font.BOLD, 20));

@@ -26,11 +26,11 @@ public class Player
 	{
 		if (up == true)
 		{
-			y--;
+			y-= 5;
 		}
 		else if (down == true)
 		{
-			y++;
+			y+= 5;
 		}
 	}
 	
